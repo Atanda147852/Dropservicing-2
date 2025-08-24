@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Empire ADINSI — Drop Servicing Premium</title>
+
+  <!-- Favicon (SVG) -->
+  <link rel="icon" type="image/svg+xml" href="/EA_shield_logo (1).svg">
+
+  <!-- SEO Meta (UNIQUE) -->
+  <meta name="description" content="Empire ADINSI : drop servicing premium (web design, marketing, vidéo, SEO). Portfolio, témoignages, tarifs et contact.">
+  <meta name="keywords" content="drop servicing, Empire ADINSI, services digitaux, délégation en ligne, agence digitale Bénin, web design, développement web, business en ligne">
+  <meta name="author" content="Empire ADINSI">
+
+  <!-- Open Graph (Facebook / WhatsApp) -->
+  <meta property="og:title" content="Empire ADINSI - Drop Servicing & Solutions Digitales">
+  <meta property="og:description" content="Optimisez votre business avec Empire ADINSI : Drop Servicing, Web Design, Développement Web et Stratégie Digitale.">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:url" content="https://www.empireadinsi.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Empire ADINSI - Drop Servicing & Solutions Digitales">
+  <meta name="twitter:description" content="Déléguez vos services digitaux avec Empire ADINSI et développez votre business en ligne.">
+  <meta name="twitter:image" content="images/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <style>
+    :root{
+      --primary:#68acff;        /* Bleu logo */
+      --primary-700:#3c8ff6;
+      --primary-900:#1e3a8a;
+      --black:#0b0b0c;
+      --white:#ffffff;
+      --muted:#f5f7fb;
+      --text:#1f2937;
+      --muted-2:#eef5ff;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --radius:12px;
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --bg:#f6f8fc;
+      --subtext:#667085;
+    }
+    /* Dark theme tokens */
+    .dark{
+      --black:#e5e7eb;
+      --white:#0b0b0c;
+      --text:#e5e7eb;
+      --card:#0f172a;
+      --border:#,233148;
+      --bg:#0b1220;
+      --subtext:#b6c2d4;
+      --muted-2:#0e1a33;
+      --shadow:0 8px 24px rgba(0,0,0,.35);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+      user-select:none; -webkit-user-select:none; -ms-user-select:none;
+    }
+
+    /* Header */
+    .header{
+      position:fixed; inset:0 0 auto 0; height:72px; z-index:50;
+      background:rgba(255,255,255,.9); backdrop-filter:saturate(180%) blur(10px);
+      box-shadow:0 1px 0 rgba(15,23,42,.06);
+    }
+    .dark .header{
+      background:rgba(11,18,32,.85);
+      box-shadow:0 1px 0 rgba(255,255,255,.05);
+    }
+    .header__inner{
+      max-width:1200px; margin:0 auto; height:100%;
+      display:flex; align-items:center; gap:16px; padding:0 20px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;min-width:0; text-decoration:none}
+    .brand img{height:40px;width:auto}
+    .brand__name{font-family:Montserrat, sans-serif; font-weight:800; letter-spacing:.2px; color:var(--black)}
+    nav ul{display:flex; gap:18px; list-style:none}
+    nav a{
+      text-decoration:none; color:var(--black); font-weight:600; font-size:.95rem;
+      padding:8px 10px; border-radius:8px; transition:.25s;
+    }
+    nav a:hover{color:var(--primary-900); background:var(--muted-2)}
+
+    /* Search */
+    .search{
+      margin-left:auto; display:flex; align-items:center; gap:8px; position:relative;
+    }
+    .search input{
+      width:260px; max-width:40vw; border:1px solid var(--border); background:var(--white);
+      color:var(--text);
+      padding:10px 14px 10px 40px; border-radius:999px; outline:none; transition:.25s; box-shadow:var(--shadow);
+    }
+    .dark .search input{background:#0b1220}
+    .search input:focus{border-color:var(--primary); box-shadow:0 0 0 4px rgba(104,172,255,.18)}
+    .search svg{position:absolute; left:12px; width:18px; height:18px; color:#6b7280}
+
+    /* Search results box */
+    #search-results{
+      position:absolute; top:48px; right:0; width:360px; max-width:90vw;
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      box-shadow:var(--shadow); padding:10px; display:none;
+    }
+    #search-results h4{font-size:.9rem; margin:6px 8px; color:var(--black)}
+    .result-item{
+      display:block; text-decoration:none; padding:10px 12px; border-radius:10px;
+      color:var(--text); border:1px solid transparent;
+    }
+    .result-item:hover{background:var(--muted-2); border-color:var(--border)}
+    mark{background:rgba(104,172,255,.35); padding:0 2px; border-radius:4px}
+
+    /* Burger (mobile) */
+    .burger{display:none; width:44px; height:44px; border-radius:12px; border:1px solid var(--border); background:var(--card); align-items:center; justify-content:center}
+    .burger-lines{position:relative; width:22px; height:2px; background:var(--black); transition:.3s}
+    .burger-lines::before,.burger-lines::after{
+      content:""; position:absolute; left:0; width:22px; height:2px; background:var(--black); transition:.3s
+    }
+    .burger-lines::before{top:-7px}
+    .burger-lines::after{top:7px}
+    .burger.active .burger-lines{background:transparent}
+    .burger.active .burger-lines::before{top:0; transform:rotate(45deg)}
+    .burger.active .burger-lines::after{top:0; transform:rotate(-45deg)}
+
+    /* Mobile nav */
+    .mobile-nav{
+      display:none; position:absolute; top:72px; left:0; right:0; background:var(--card); border-bottom:1px solid var(--border);
+      box-shadow:var(--shadow); padding:14px 20px;
+    }
+    .mobile-nav a{display:block; padding:12px; color:var(--black); border-radius:10px; text-decoration:none; font-weight:600}
+    .mobile-nav a:hover{background:var(--muted-2); color:var(--primary-900)}
+
+    /* Hero */
+    .hero{
+      padding-top:120px; min-height:88vh; display:grid; place-items:center; background:
+        radial-gradient(1000px 500px at 85% 10%, rgba(104,172,255,.18), transparent 60%),
+        radial-gradient(800px 500px at 10% 0%, rgba(30,58,138,.10), transparent 60%);
+    }
+    .dark .hero{background:none}
+    .hero__inner{max-width:1200px; margin:auto; display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center; padding:0 20px}
+    .kicker{display:inline-block; padding:6px 12px; border-radius:999px; border:1px solid #dbeafe; background:#eef5ff; color:#1e3a8a; font-weight:700; font-size:.8rem; letter-spacing:.5px}
+    .dark .kicker{background:#0e1a33; border-color:#1b2a48; color:#9ec0ff}
+    .hero h1{font-family:Montserrat, sans-serif; font-size:clamp(2rem,4.5vw,3.2rem); line-height:1.15; margin:14px 0; color:var(--black)}
+    .hero h1 .accent{color:var(--primary-900)}
+    .hero p{font-size:1.05rem; color:#495266; max-width:52ch}
+    .dark .hero p{color:#b6c2d4}
+    .cta{display:flex; gap:12px; margin-top:22px}
+    .btn{cursor:pointer; user-select:none; border:none; border-radius:12px; padding:12px 18px; font-weight:700; transition:.25s}
+    .btn--primary{background:var(--primary); color:#fff; box-shadow:0 8px 24px rgba(104,172,255,.35)}
+    .btn--primary:hover{background:var(--primary-700); transform:translateY(-1px)}
+    .btn--ghost{background:var(--card); color:var(--black); border:1px solid var(--border)}
+    .btn--ghost:hover{border-color:#cbd5e1; transform:translateY(-1px)}
+
+    .hero-card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:var(--shadow)}
+    .hero-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px}
+    .hero-box{width:100%; padding-top:100%; background-size:cover; background-position:center; border-radius:10px}
+
+    /* Sections */
+    section.section{padding:80px 20px}
+    .section__title{font-family:Montserrat, sans-serif; font-size:clamp(1.6rem,3.2vw,2.4rem); text-align:center; color:var(--black); margin-bottom:16px}
+    .section__sub{text-align:center; color:var(--subtext); max-width:60ch; margin:0 auto 36px}
+
+    /* Grids */
+    .grid{display:grid; gap:20px}
+    .grid--services{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:var(--shadow); transition:.3s}
+    .card:hover{transform:translateY(-4px)}
+    .card img{width:56px; height:56px; margin-bottom:10px; object-fit:contain}
+    .card h3{font-weight:800; color:var(--black); margin-bottom:6px}
+    .card p{color:var(--subtext)}
+
+    /* Process steps */
+    .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
+    .step{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    .step__num{display:inline-grid; place-items:center; width:40px; height:40px; border-radius:10px; background:#eef5ff; color:var(--primary-900); font-weight:800; margin-bottom:10px}
+    .dark .step__num{background:#0e1a33}
+
+    /* Pricing */
+    .pricing{max-width:1100px; margin:0 auto}
+    .plans{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+    .plan{background:var(--card); border:2px solid var(--border); border-radius:16px; padding:22px; box-shadow:var(--shadow); transition:.3s}
+    .plan--best{border-color:var(--primary); transform:translateY(-2px)}
+    .price{font-family:Montserrat, sans-serif; font-size:2rem; color:var(--primary-900); margin:8px 0}
+    .features{margin:10px 0 16px; color:#475569}
+    .dark .features{color:#a9b4c5}
+    .features li{list-style:"✓  "; margin:6px 0}
+/* Modal de paiement */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  position: relative;
+}
+.modal-content input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+}
+.modal-content button {
+  background:#007bff; color:white; padding:10px 15px; border:none; border-radius:6px; cursor:pointer;
+}
+.close {
+  position:absolute; top:10px; right:15px; font-size:20px; cursor:pointer;
+}
+
+    /* Swiper (testimonials) */
+    .swiper{width:100%; padding:20px 0 40px}
+    .swiper-slide{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; box-shadow:var(--shadow); max-width:560px}
+    .quote{font-style:italic; color:#334155}
+    .dark .quote{color:#b6c2d4}
+    .author{margin-top:10px; font-weight:800; color:var(--black)}
+
+    #faq {
+    padding: 60px 20px;
+    background: #f9f9f9;
+  }
+  .section__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  .faq {
+    max-width: 800px;
+    margin: auto;
+  }
+  .faq-item {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 18px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+  .faq-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+  .faq-item.active .faq-a {
+    max-height: 200px;
+    padding: 15px 20px;
+  }
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    color: #0073e6;
+  }
+ /* Formulaire */
+  .faq-form {
+    max-width: 600px;
+    margin: 50px auto 0;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  .faq-form h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+  }
+  .faq-form p {
+    margin-bottom: 20px;
+    color: #666;
+  }
+  .faq-question-form input,
+  .faq-question-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+  }
+  .faq-question-form button {
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #0073e6;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .faq-question-form button:hover {
+    background: #005bb5;
+  }
+    /* Contact */
+    .contact{max-width:920px; margin:0 auto}
+    .form{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .form input,.form textarea{
+      width:100%; border:1px solid var(--border); border-radius:12px; padding:12px 14px; outline:none; background:var(--card); color:var(--text)
+    }
+    .form input:focus,.form textarea:focus{border-color:var(--primary); box-shadow:0 0 0 4px rgba(104,172,255,.18)}
+    .form textarea{grid-column:1/-1; min-height:140px; resize:vertical}
+    .form .actions{grid-column:1/-1; display:flex; justify-content:flex-end}
+
+    /* Footer */
+    .footer{background:#0f172a; color:#e2e8f0; padding:40px 20px; margin-top:60px}
+    .dark .footer{background:#0a0f1d}
+    .footer__inner{max-width:1200px; margin:auto; display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:20px}
+    .footer h4{font-family:Montserrat, sans-serif; color:#fff; margin-bottom:10px}
+    .footer a{color:#cbd5e1; text-decoration:none}
+    .footer a:hover{color:#fff}
+    .footer__bottom{border-top:1px solid rgba(255,255,255,.08); margin-top:20px; padding-top:16px; text-align:center; font-size:.95rem}
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio{max-width:1200px; margin:0 auto}
+    .filters{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:22px}
+    .filter-btn{
+      border:1px solid #dbeafe; background:var(--card); color:#1e3a8a; padding:10px 14px; border-radius:999px;
+      font-weight:700; cursor:pointer; transition:.2s;
+    }
+    .dark .filter-btn{border-color:#243552; color:#9ec0ff}
+    .filter-btn:hover{background:var(--muted-2)}
+    .filter-btn.active{background:var(--primary); color:#fff; border-color:var(--primary)}
+    .portfolio-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
+    .work{position:relative; overflow:hidden; border-radius:16px; border:1px solid var(--border); background:var(--card); box-shadow:var(--shadow)}
+    .work img{width:100%; height:200px; object-fit:cover; display:block; transition:transform .6s}
+    .work:hover img{transform:scale(1.06)}
+    .work-badge{position:absolute; top:10px; left:10px; background:rgba(15,23,42,.85); color:#fff; font-size:.75rem; padding:6px 10px; border-radius:999px}
+    .work-info{padding:14px}
+    .work-title{font-weight:800; color:var(--black)}
+    .work-tags{font-size:.9rem; color:#64748b}
+    .dark .work-tags{color:#a9b4c5}
+
+    .chade-scarf {
+    padding: 50px 20px;
+    background: #fdfdfd;
+    text-align: center;
+  }
+
+  .chade-scarf h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .chade-scarf p {
+    max-width: 600px;
+    margin: auto;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  .chade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .chade-box {
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    min-height: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .chade-box:hover {
+    transform: scale(1.05);
+  }
+    /* Back to top */
+    #backToTop{position:fixed; bottom:24px; right:24px; background:#2563eb; color:#fff; padding:12px; border-radius:999px; box-shadow:var(--shadow); border:none; cursor:pointer; opacity:0; pointer-events:none; transition:.25s}
+    #backToTop.show{opacity:1; pointer-events:auto}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero__inner{grid-template-columns:1fr}
+    }
+    @media (max-width: 860px){
+      nav{display:none}
+      .burger{display:flex}
+      .search input{width:200px}
+    }
+    @media (max-width: 560px){
+      .search{display:none}
+      .cta{flex-direction:column}
+      .form{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Empire ADINSI",
+    "url":"https://www.empireadinsi.com",
+    "logo":"https://www.empireadinsi.com/EA_shield_logo%20(1).svg",
+    "sameAs": ["https://facebook.com/","https://instagram.com/"],
+    "description":"Agence de drop servicing, web design, marketing et SEO."
+  }
+  </script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#hero" class="brand" aria-label="Empire ADINSI">
+        <img src="/EA_shield_logo (1).svg" alt="Logo Empire ADINSI"/>
+        <span class="brand__name">Empire ADINSI</span>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#why">Pourquoi nous</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#pricing">Tarifs</a></li>
+          <li><a href="#testimonials">Avis</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Search + results -->
+      <div class="search" role="search" aria-label="Recherche interne">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 21l-4.3-4.3M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="site-search" type="search" placeholder="Rechercher un service ou un projet…" aria-label="Rechercher"/>
+        <div id="search-results" aria-live="polite" aria-label="Résultats de recherche"></div>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu mobile">
+        <span class="burger-lines"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#why">Pourquoi nous</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="#testimonials">Avis</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <div style="margin-top:8px">
+        <button id="darkToggle" class="btn btn--ghost" aria-label="Basculer le mode sombre">🌙 / ☀️</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+      <div data-aos="fade-right">
+        <span class="kicker">Premium • Rapide • Mesurable</span>
+        <h1 id="hero-title">Vendez <span class="accent">sans exécuter</span> — on gère l’exécution avec des experts vérifiés.</h1>
+        <p id="hero-desc">Positionnement premium, résultats concrets. Nous orchestrons vos projets avec un réseau d’élite pendant que vous vous concentrez sur la vente.</p>
+        <div class="cta">
+          <a id="hero-cta-order" class="btn btn--primary" href="#pricing">Commander maintenant</a>
+          <a id="hero-cta-quote" class="btn btn--ghost" href="#contact">Obtenir un devis</a>
+        </div>
+      </div>
+
+      <div class="hero-card" data-aos="fade-left" aria-label="Aperçus de réalisations">
+        <div class="hero-grid">
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=1');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=2');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=3');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=4');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=5');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=6');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=7');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=8');"></div>
+          <div class="hero-box" style="background-image: url('https://picsum.photos/400/400?random=9');"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANG SWITCH (optionnel visible) -->
+  <div style="max-width:1200px;margin:0 auto 10px; padding:0 20px;">
+    <label for="langSelect" style="margin-right:8px;">Choisir la langue :</label>
+    <select id="langSelect" aria-label="Sélecteur de langue">
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2 class="section__title" data-aos="fade-up">Services prêts à commander</h2>
+    <p class="section__sub" data-aos="fade-up" data-aos-delay="100">Des offres packagées, simples et rentables. Sous-traitées à des experts triés sur le volet.</p>
+
+    <div class="grid grid--services">
+      <article class="card" data-aos="zoom-in" data-kind="service">
+        <img src="https://img.icons8.com/color/96/services.png" alt="Web design"/>
+        <h3>Site vitrine express</h3>
+        <p>Design moderne, 5 pages, optimisation mobile.</p>
+      </article>
+      <article class="card" data-aos="zoom-in" data-aos-delay="50" data-kind="service">
+        <img src="https://img.icons8.com/color/96/marketing.png" alt="Marketing"/>
+        <h3>Gestion Ads</h3>
+        <p>Campagnes Google/Facebook, optimisation hebdo.</p>
+      </article>
+      <article class="card" data-aos="zoom-in" data-aos-delay="100" data-kind="service">
+        <img src="https://img.icons8.com/color/96/video-editing.png" alt="Montage vidéo"/>
+        <h3>Montage vidéo</h3>
+        <p>Vidéos pro pour votre marque et vos pubs.</p>
+      </article>
+      <article class="card" data-aos="zoom-in" data-aos-delay="150" data-kind="service">
+        <img src="https://img.icons8.com/color/96/translation.png" alt="Traduction"/>
+        <h3>Traduction</h3>
+        <p>Rapide, précise, multilingue.</p>
+      </article>
+      <article class="card" data-aos="zoom-in" data-aos-delay="200" data-kind="service">
+        <img src="https://img.icons8.com/color/96/camera.png" alt="Photo produit"/>
+        <h3>Photographie</h3>
+        <p>Visuels attractifs qui convertissent.</p>
+      </article>
+      <article class="card" data-aos="zoom-in" data-aos-delay="250" data-kind="service">
+        <img src="https://img.icons8.com/color/96/voice-presentation.png" alt="Voix off"/>
+        <h3>Voix off</h3>
+        <p>Enregistrements pro pour pubs et vidéos.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section">
+    <h2 class="section__title" data-aos="fade-up">Portfolio & Références</h2>
+    <p class="section__sub" data-aos="fade-up" data-aos-delay="100">Quelques projets réalisés par nos experts. Filtrez par catégorie pour trouver l’inspiration.</p>
+
+    <div class="portfolio" data-aos="fade-up" data-aos-delay="150">
+      <div class="filters" role="tablist" aria-label="Filtres portfolio">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">Tout</button>
+        <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+        <button class="filter-btn" data-filter="design" aria-pressed="false">Design</button>
+        <button class="filter-btn" data-filter="marketing" aria-pressed="false">Marketing</button>
+        <button class="filter-btn" data-filter="video" aria-pressed="false">Vidéo</button>
+      </div>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+        <article class="work" data-category="web">
+          <span class="work-badge">Web</span>
+          <img src="https://picsum.photos/600/400?random=11" alt="Site vitrine pour PME" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">Site vitrine PME</div>
+            <div class="work-tags">SEO, Responsive, Performance</div>
+          </div>
+        </article>
+
+        <article class="work" data-category="design">
+          <span class="work-badge">Design</span>
+          <img src="https://picsum.photos/600/400?random=12" alt="Identité visuelle & logo" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">Identité visuelle & Logo</div>
+            <div class="work-tags">Branding, Guidelines</div>
+          </div>
+        </article>
+
+        <article class="work" data-category="marketing">
+          <span class="work-badge">Marketing</span>
+          <img src="https://picsum.photos/600/400?random=13" alt="Campagne Ads à fort ROI" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">Campagne ADS ROI+</div>
+            <div class="work-tags">Google Ads, Meta Ads</div>
+          </div>
+        </article>
+
+        <article class="work" data-category="video">
+          <span class="work-badge">Vidéo</span>
+          <img src="https://picsum.photos/600/400?random=14" alt="Spot publicitaire produit" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">Spot produit 30s</div>
+            <div class="work-tags">Motion, Voix off</div>
+          </div>
+        </article>
+
+        <article class="work" data-category="web">
+          <span class="work-badge">Web</span>
+          <img src="https://picsum.photos/600/400?random=15" alt="E-commerce optimisé" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">E-commerce optimisé</div>
+            <div class="work-tags">UX, Checkout, Analytics</div>
+          </div>
+        </article>
+
+        <article class="work" data-category="design">
+          <span class="work-badge">Design</span>
+          <img src="https://picsum.photos/600/400?random=16" alt="Kit réseaux sociaux" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">Kit réseaux sociaux</div>
+            <div class="work-tags">Templates, Cohérence</div>
+          </div>
+        </article>
+
+        <article class="work" data-category="marketing">
+          <span class="work-badge">Marketing</span>
+          <img src="https://picsum.photos/600/400?random=17" alt="Tunnel de conversion" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">Tunnel de conversion</div>
+            <div class="work-tags">Landing, A/B test</div>
+          </div>
+        </article>
+
+        <article class="work" data-category="video">
+          <span class="work-badge">Vidéo</span>
+          <img src="https://picsum.photos/600/400?random=18" alt="Interview client" loading="lazy"/>
+          <div class="work-info">
+            <div class="work-title">Interview client</div>
+            <div class="work-tags">Storytelling, Montage</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="section">
+    <h2 class="section__title" data-aos="fade-up">Pourquoi choisir Empire ADINSI ?</h2>
+    <p class="section__sub" data-aos="fade-up" data-aos-delay="100">Experts • Rapidité • Qualité • Support 7j/7</p>
+    <div class="steps" style="margin-top:10px">
+      <div class="step" data-aos="fade-right"><div class="step__num">1</div><h3>Experts vérifiés</h3><p>Réseau d’élite, testé et noté.</p></div>
+      <div class="step" data-aos="fade-right" data-aos-delay="60"><div class="step__num">2</div><h3>Livraison rapide</h3><p>Des délais fermes et respectés.</p></div>
+      <div class="step" data-aos="fade-right" data-aos-delay="120"><div class="step__num">3</div><h3>Qualité mesurable</h3><p>KPIs, rapports et itérations.</p></div>
+      <div class="step" data-aos="fade-right" data-aos-delay="180"><div class="step__num">4</div><h3>Support continu</h3><p>Accompagnement transparent.</p></div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section">
+    <h2 class="section__title" data-aos="fade-up">Notre Process</h2>
+    <p class="section__sub" data-aos="fade-up" data-aos-delay="100">Simple, clair, efficace.</p>
+    <div class="steps" style="margin-top:10px">
+      <div class="step" data-aos="fade-left"><div class="step__num">1</div><h3>Commande</h3><p>Vous précisez votre besoin.</p></div>
+      <div class="step" data-aos="fade-left" data-aos-delay="60"><div class="step__num">2</div><h3>Matching</h3><p>On assigne l’expert idéal.</p></div>
+      <div class="step" data-aos="fade-left" data-aos-delay="120"><div class="step__num">3</div><h3>Suivi</h3><p>Pilote projet + points réguliers.</p></div>
+      <div class="step" data-aos="fade-left" data-aos-delay="180"><div class="step__num">4</div><h3>Livraison</h3><p>Validation + corrections incluses.</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <h2 class="section__title" data-aos="fade-up">Tarifs transparents</h2>
+    <p class="section__sub" data-aos="fade-up" data-aos-delay="100">Des packs clairs pour démarrer vite.</p>
+    <div class="pricing">
+      <div class="plans">
+        <article class="plan" data-aos="zoom-in">
+          <h3>Starter</h3>
+          <p class="price">99€</p>
+          <ul class="features">
+            <li>Audit express</li>
+            <li>1 livrable</li>
+            <li>Support email</li>
+          </ul>
+          <button class="btn btn--ghost">Choisir Starter</button>
+        </article>
+        <article class="plan plan--best" data-aos="zoom-in" data-aos-delay="80">
+          <h3>Pro</h3>
+          <p class="price">299€</p>
+          <ul class="features">
+            <li>Jusqu’à 3 livrables</li>
+            <li>Chef de projet dédié</li>
+            <li>Suivi hebdomadaire</li>
+          </ul>
+          <button class="btn btn--primary">Choisir Pro</button>
+        </article>
+        <article class="plan" data-aos="zoom-in" data-aos-delay="160">
+          <h3>Premium</h3>
+          <p class="price">599€</p>
+          <ul class="features">
+            <li>Tout inclus</li>
+            <li>Itérations illimitées*</li>
+            <li>Support prioritaire</li>
+          </ul>
+          <button class="btn btn--ghost">Choisir Premium</button>
+        </article>
+      </div>
+    </div>
+  </section>
+<!-- Modal de paiement -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Confirmer votre paiement</h3>
+    <form id="paymentForm">
+      <label>Nom :</label>
+      <input type="text" name="name" required>
+      <label>Email :</label>
+      <input type="email" name="email" required>
+      <label>Montant (€) :</label>
+      <input type="number" name="amount" min="1" required>
+      <button type="submit">Payer</button>
+    </form>
+    <p id="successMsg" style="color:green; display:none;">Paiement simulé avec succès ✅</p>
+  </div>
+</div>
+
+  <!-- Section Chade Scarf -->
+<section class="chade-scarf" data-aos="fade-up">
+  <h2>Chade Scarf</h2>
+  <p>
+    Tout pour les femmes musulmanes : hijabs, voiles et accessoires.  
+    Livraison à domicile disponible. Elle nous fait confiance pour gérer la partie technique tandis qu'elle se concentre sur les ventes.
+  </p>
+
+  <div class="chade-grid">
+    <!-- Images depuis Unsplash (API Source) -->
+    <div class="chade-box" style="background-image:url('https://source.unsplash.com/collection/94734566/400x400');"></div>
+    <div class="chade-box" style="background-image:url('https://source.unsplash.com/collection/94734566/401x400');"></div>
+    <div class="chade-box" style="background-image:url('https://source.unsplash.com/collection/94734566/402x400');"></div>
+    <div class="chade-box" style="background-image:url('https://source.unsplash.com/collection/94734566/403x400');"></div>
+    <div class="chade-box" style="background-image:url('https://source.unsplash.com/collection/94734566/404x400');"></div>
+    <div class="chade-box" style="background-image:url('https://source.unsplash.com/collection/94734566/405x400');"></div>
+  </div>
+</section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section">
+    <h2 class="section__title" data-aos="fade-up">Ils nous font confiance</h2>
+    <p class="section__sub" data-aos="fade-up" data-aos-delay="100">Des clients satisfaits, des résultats concrets.</p>
+
+    <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="150">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <p class="quote">“Service impeccable, réactif et créatif. Mon site convertit 2x mieux.”</p>
+          <p class="author">— Alice, e-commerce</p>
+        </div>
+        <div class="swiper-slide">
+          <p class="quote">“Livraison rapide, communication parfaite. Je recommande à 100%.”</p>
+          <p class="author">— Karim, consultant</p>
+        </div>
+        <div class="swiper-slide">
+          <p class="quote">“Des pros ! Branding + site + ads : ROI en 6 semaines.”</p>
+          <p class="author">— Sophie, startup</p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+<section id="faq" class="section">
+  <h2 class="section__title" data-aos="fade-up">❓ Foire Aux Questions</h2>
+
+  <div class="faq">
+    <!-- FAQ Item -->
+    <div class="faq-item" data-aos="fade-right">
+      <button class="faq-q">
+        <span>Quel délai pour un site ?</span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        Généralement 2 à 4 semaines selon la complexité et vos retours.
+      </div>
+    </div>
+
+    <!-- FAQ Item -->
+    <div class="faq-item" data-aos="fade-right" data-aos-delay="60">
+      <button class="faq-q">
+        <span>Proposez-vous du SEO ?</span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        Oui, l’optimisation technique et le contenu sont inclus selon le pack choisi.
+      </div>
+    </div>
+
+    <!-- FAQ Item -->
+    <div class="faq-item" data-aos="fade-right" data-aos-delay="120">
+      <button class="faq-q">
+        <span>Quels moyens de paiement ?</span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        Carte bancaire, virement, PayPal. Facture fournie.
+      </div>
+    </div>
+
+    <!-- Exemple supplémentaire -->
+    <div class="faq-item" data-aos="fade-right" data-aos-delay="180">
+      <button class="faq-q">
+        <span>Faites-vous la maintenance après livraison ?</span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        Oui, nous proposons un service de maintenance et mise à jour selon un forfait adapté.
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Formulaire si la réponse n'existe pas -->
+  <div class="faq-form" data-aos="fade-up">
+    <h3>❓ Vous n'avez pas trouvé votre question ?</h3>
+    <p>Posez-la ci-dessous, nous vous répondrons rapidement 👇</p>
+
+    <form action="send_question.php" method="POST" class="faq-question-form">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="question" placeholder="Écrivez votre question ici..." rows="4" required></textarea>
+      <button type="submit">Envoyer ma question</button>
+    </form>
+  </div>
+</section>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2 class="section__title" data-aos="fade-up">Parlons de vos objectifs</h2>
+    <p class="section__sub" data-aos="fade-up" data-aos-delay="100">Dites-nous ce dont vous avez besoin — on s’occupe du reste.</p>
+    <div class="contact" data-aos="zoom-in">
+      <form class="form" onsubmit="event.preventDefault(); alert('Merci ! Nous revenons vers vous rapidement.');">
+        <input type="text" placeholder="Nom" required aria-label="Nom"/>
+        <input type="email" placeholder="Email" required aria-label="Email"/>
+        <input type="text" placeholder="Objet" aria-label="Objet"/>
+        <textarea placeholder="Votre message" required aria-label="Votre message"></textarea>
+        <div class="actions">
+          <button class="btn btn--primary" type="submit">Envoyer</button>
+        </div>
+      </form>
+      <p style="text-align:center; margin-top:10px">
+        Ou contactez-nous via <a href="https://wa.me/2290158984126" target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+      <div class="footer__inner">
+      <div>
+        <h4>Empire ADINSI</h4>
+        <p>Drop servicing premium : exécution par des experts, vous concentrez sur la vente.</p>
+      </div>
+      <div>
+        <h4>Liens</h4>
+        <p><a href="#services">Services</a></p>
+        <p><a href="#portfolio">Portfolio</a></p>
+        <p><a href="#pricing">Tarifs</a></p>
+        <p><a href="#faq">FAQ</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="#contact">Formulaire</a></p>
+        <p><a href="mailto:contact@empire-adinsi.com">contact@empire-adinsi.com</a></p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      © 2025 Empire ADINSI — Tous droits réservés.
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Revenir en haut">↑</button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // ---------- THEME (dark mode) ----------
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'dark' || (!savedTheme && prefersDark)){
+      document.documentElement.classList.add('dark');
+    }
+
+    function toggleTheme(){
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme',
+        document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+      );
+    }
+
+    // ---------- Burger & Mobile nav ----------
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      const open = mobileNav.style.display === 'block';
+      mobileNav.style.display = open ? 'none' : 'block';
+      burger.setAttribute('aria-label', open ? 'Ouvrir le menu mobile' : 'Fermer le menu mobile');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileNav.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click', ()=>{
+        mobileNav.style.display = 'none';
+        burger.classList.remove('active');
+      });
+    });
+    // Close on outside click
+    document.addEventListener('click', (e)=>{
+      if(mobileNav.style.display === 'block' && !mobileNav.contains(e.target) && !burger.contains(e.target)){
+        mobileNav.style.display = 'none';
+        burger.classList.remove('active');
+      }
+    });
+
+    // Dark toggle button (in mobile menu)
+    const darkToggle = document.getElementById('darkToggle');
+    darkToggle?.addEventListener('click', toggleTheme);
+
+    // ---------- AOS ----------
+    AOS.init({ duration:900, once:true });
+
+    // ---------- Swiper (testimonials) ----------
+    new Swiper('.mySwiper', {
+      loop:true,
+      autoplay:{delay:3000, disableOnInteraction:false},
+      pagination:{el:'.swiper-pagination', clickable:true},
+      slidesPerView:1,
+      spaceBetween:18,
+      breakpoints:{ 900:{ slidesPerView:2 } }
+    });
+
+    // ---------- GSAP (Hero) ----------
+    window.addEventListener('load', ()=>{
+      gsap.from('#hero-title', { y:-80, opacity:0, duration:1.2, ease:'bounce.out' });
+      gsap.from('.kicker', { y:-20, opacity:0, duration:.6, delay:.2 });
+      gsap.from('.cta .btn', { scale:0.8, opacity:0, duration:.5, delay:.5, stagger:.1 });
+    });
+
+    // ---------- Portfolio Filtering ----------
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const works = document.querySelectorAll('.work');
+
+    filterBtns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        // active UI + aria
+        filterBtns.forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed','true');
+
+        const filter = btn.dataset.filter;
+        works.forEach(card=>{
+          const cat = card.dataset.category;
+          const show = (filter === 'all' || filter === cat);
+          card.style.display = show ? '' : 'none';
+          if(show){
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(10px)';
+            requestAnimationFrame(()=> {
+              card.style.transition = 'opacity .35s ease, transform .35s ease';
+              card.style.opacity = 1;
+              card.style.transform = 'translateY(0)';
+            });
+          }
+        });
+      });
+    });
+
+    // ---------- Search (services + portfolio) ----------
+    const searchInput = document.getElementById('site-search');
+    const resultsBox  = document.getElementById('search-results');
+    const serviceCards = Array.from(document.querySelectorAll('#services .card'));
+    const portfolioCards = Array.from(document.querySelectorAll('#portfolio .work'));
+
+    function highlight(text, query){
+      if(!query) return text;
+      const re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','ig');
+      return text.replace(re,'<mark>$1</mark>');
+    }
+
+    function makeResultItem({title, snippet, anchor}){
+      const a = document.createElement('a');
+      a.className = 'result-item';
+      a.href = anchor;
+      a.innerHTML = `<strong>${title}</strong><br><small>${snippet}</small>`;
+      a.addEventListener('click', ()=>{ resultsBox.style.display='none'; });
+      return a;
+    }
+
+    function searchAll(q){
+      const query = q.toLowerCase().trim();
+      resultsBox.innerHTML = '';
+      if(!query){ resultsBox.style.display='none'; return; }
+
+      // Filter visually in place
+      const filterFn = (el)=> el.innerText.toLowerCase().includes(query);
+      serviceCards.forEach(c=>{ c.style.display = filterFn(c) ? '' : 'none'; });
+      portfolioCards.forEach(c=>{ c.style.display = filterFn(c) ? '' : 'none'; });
+
+      // Build results list (top 8)
+      const results = [];
+      serviceCards.forEach(c=>{
+        if(filterFn(c)){
+          results.push({
+            title: c.querySelector('h3')?.innerText || 'Service',
+            snippet: c.querySelector('p')?.innerText || '',
+            anchor: '#services'
+          });
+        }
+      });
+      portfolioCards.forEach(w=>{
+        if(filterFn(w)){
+          results.push({
+            title: w.querySelector('.work-title')?.innerText || 'Projet',
+            snippet: w.querySelector('.work-tags')?.innerText || '',
+            anchor: '#portfolio'
+          });
+        }
+      });
+
+      const limited = results.slice(0,8);
+      const header = document.createElement('h4');
+      header.textContent = `${results.length} résultat(s)`;
+      resultsBox.appendChild(header);
+
+      limited.forEach(r=>{
+        const item = makeResultItem({
+          title: highlight(r.title, q),
+          snippet: highlight(r.snippet, q),
+          anchor: r.anchor
+        });
+        resultsBox.appendChild(item);
+      });
+
+      resultsBox.style.display = limited.length ? 'block' : 'none';
+    }
+
+    searchInput?.addEventListener('input', (e)=> searchAll(e.target.value));
+    // Close results on outside click / escape
+    document.addEventListener('click', (e)=>{
+      if(!resultsBox.contains(e.target) && e.target !== searchInput){ resultsBox.style.display='none'; }
+    });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ resultsBox.style.display='none'; } });
+
+    document.querySelectorAll(".faq-q").forEach(button => {
+    button.addEventListener("click", () => {
+      const faqItem = button.parentElement;
+
+      // Fermer les autres
+      document.querySelectorAll(".faq-item").forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove("active");
+        }
+      });
+
+      // Toggle la question actuelle
+      faqItem.classList.toggle("active");
+    });
+  });
+document.querySelectorAll(".faq-q").forEach(button => {
+    button.addEventListener("click", () => {
+      const faqItem = button.parentElement;
+
+      document.querySelectorAll(".faq-item").forEach(item => {
+        if (item !== faqItem) item.classList.remove("active");
+      });
+
+      faqItem.classList.toggle("active");
+    });
+  });
+    // ---------- Back to top ----------
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ---------- i18n minimal ----------
+    const translations = {
+      fr: {
+        heroTitle: "Vendez <span class='accent'>sans exécuter</span> — on gère l’exécution avec des experts vérifiés.",
+        heroDesc: "Positionnement premium, résultats concrets. Nous orchestrons vos projets avec un réseau d’élite pendant que vous vous concentrez sur la vente.",
+        ctaOrder: "Commander maintenant",
+        ctaQuote: "Obtenir un devis"
+      },
+      en: {
+        heroTitle: "Sell <span class='accent'>without executing</span> — we handle delivery with vetted experts.",
+        heroDesc: "Premium positioning, concrete results. We orchestrate your projects while you focus on sales.",
+        ctaOrder: "Order now",
+        ctaQuote: "Get a quote"
+      },
+      es: {
+        heroTitle: "Vende <span class='accent'>sin ejecutar</span> — gestionamos la entrega con expertos verificados.",
+        heroDesc: "Posicionamiento premium y resultados concretos. Orquestamos sus proyectos mientras usted se centra en las ventas.",
+        ctaOrder: "Ordenar ahora",
+        ctaQuote: "Obtener presupuesto"
+      }
+    };
+
+    function setLanguage(lang){
+      const t = translations[lang] || translations.fr;
+      document.getElementById('hero-title').innerHTML = t.heroTitle;
+      document.getElementById('hero-desc').textContent = t.heroDesc;
+      document.getElementById('hero-cta-order').textContent = t.ctaOrder;
+      document.getElementById('hero-cta-quote').textContent = t.ctaQuote;
+      document.getElementById('langSelect').value = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('lang');
+    const userLang = (navigator.language || navigator.userLanguage || 'fr').slice(0,2);
+    setLanguage(savedLang || (['fr','en','es'].includes(userLang) ? userLang : 'fr'));
+
+    document.getElementById('langSelect').addEventListener('change', function(){
+      setLanguage(this.value);
+    });
+const modal = document.getElementById('paymentModal');
+const closeBtn = document.querySelector('.close');
+const form = document.getElementById('paymentForm');
+const successMsg = document.getElementById('successMsg');
+
+// Ouvrir le modal quand on clique sur un bouton "Choisir"
+document.querySelectorAll('#pricing button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const price = btn.closest('.plan').querySelector('.price').innerText;
+    modal.style.display = 'block';
+    form.amount.value = price.replace('€',''); // pré-remplit le montant
+    successMsg.style.display = 'none';
+  });
+});
+
+// Fermer le modal
+closeBtn.onclick = () => modal.style.display = 'none';
+window.onclick = (e) => { if(e.target==modal) modal.style.display='none'; }
+
+// Gestion du formulaire
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  successMsg.style.display = 'block';
+  form.reset();
+});
+    // ---------- (Optionnel) Protection actions dev — désactivée par défaut ----------
+    // Pour une meilleure UX et SEO, on évite de bloquer clic droit / devtools.
+    // Si tu veux réactiver, dé-commente le bloc ci-dessous.
+    /*
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', function(e){
+      if ((e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's')) || e.key === 'F12') e.preventDefault();
+      if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) e.preventDefault();
+    });
+    */
+  </script>
+</body>
+</html>
